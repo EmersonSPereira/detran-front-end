@@ -1,0 +1,34 @@
+<div class="container "  >
+  <div class="row container-fluid">
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+        <img src="./assets/imagens/search.svg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Consultar Multas</h5>
+          <p class="card-text">Consulte aqui suas multas pela placa do veículo ou pelo CPF do proprietário.</p>
+          <a [routerLink]="['/multas']"  class="btn btn-primary mt-1" >Ir para Serviço</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm container-fluid">
+      <div class="card container" style="width: 18rem;">
+        <img src="./assets/imagens/multar.svg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Aplicar Multa</h5>
+          <p class="card-text">Aplique multas digitando a placa do veículo e o tipo da multa.</p>
+          <a [routerLink]="['/multas/gerar-multas']" class="btn btn-primary mt-1">Ir para Serviço</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm container-fluid">
+      <div class="card " style="width: 18rem; ">
+        <img src="./assets/imagens/cadastrar.svg" class="card-img-top " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cadastrar Veículo</h5>
+          <p class="card-text">Cadastre veículos no sistema</p>
+          <a [routerLink]="['/veiculos']" class="btn btn-primary mt-5">Ir para Serviço</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

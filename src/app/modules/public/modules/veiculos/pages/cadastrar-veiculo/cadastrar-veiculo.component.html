@@ -1,0 +1,160 @@
+<div class="container  ">
+  <!-- inicio form veiculo -->
+  <form [formGroup]="formVeiculo" (ngSubmit)="submit()">
+    <h3>Dados do Veículo: </h3>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputEmail4">Nome Veículo:</label>
+        <input formControlName="nome" type="text" class="form-control" placeholder="Digite o Nome Veículo">
+        <div class="alert alert-danger" *ngIf="!nome.valid && nome.touched">campo Nome Veículo obrigatório</div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputPassword4">Marca:</label>
+        <input formControlName="marca" type="text" class="form-control" placeholder="Digite a Marca do Veículo">
+        <div class="alert alert-danger" *ngIf="!marca.valid && marca.touched">campo Marca obrigatório</div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputEmail4">Cor:</label>
+        <input formControlName="cor" type="text" class="form-control" placeholder="Digite a Cor Veículo">
+        <div class="alert alert-danger" *ngIf="!cor.valid && cor.touched">campo Cor obrigatório</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputEmail4">Renavan:</label>
+        <input formControlName="renavan" type="text" class="form-control" placeholder="Digite o Renavan ">
+        <div class="alert alert-danger" *ngIf="!renavan.valid && renavan.touched">campo Renavan obrigatório</div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputPassword4">Ano</label>
+        <input formControlName="ano" type="number" class="form-control" placeholder="Ex: 2015 ">
+        <div class="alert alert-danger" *ngIf="!ano.valid && ano.touched">campo Ano obrigatório</div>
+      </div>
+    </div>
+    <h3 class="mt-4 mb-4">Dados do Proprietário: </h3>
+
+    <!-- Inicio forGroup Proprietário -->
+    <div formGroupName="proprietario">
+
+      <div class="form-row align-items-end">
+        <div class="form-group col-md-4">
+          <label for="inputEmail4">CPF:</label>
+          <input formControlName="cpfCnpj" type="text" class="form-control" placeholder="CPF sem digitos">
+          <div class="alert alert-danger" *ngIf="!cpfProprietario.valid && cpfProprietario.touched">campo CPF
+            obrigatório</div>
+        </div>
+
+        <div class=" col-md-4  mb-3">
+          <a class="btn btn-success" href="#" role="button">Buscar dados</a>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome:</label>
+          <input formControlName="nome" type="text" class="form-control" placeholder="Digite o Nome ">
+          <div class="alert alert-danger" *ngIf="!nomeProprietario.valid && nomeProprietario.touched">campo Nome
+            obrigatório</div>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">RG:</label>
+          <input formControlName="rg" type="text" class="form-control" placeholder="Digite o RG ">
+          <div class="alert alert-danger" *ngIf="!rg.valid && rg.touched">campo RG obrigatório</div>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputPassword4">CNH:</label>
+          <input formControlName="cnh" type="text" class="form-control" placeholder="Digite o CNH ">
+          <div class="alert alert-danger" *ngIf="!cnh.valid && cnh.touched">campo CNH obrigatório</div>
+        </div>
+      </div>
+      <h4 class="mt-4 mb-4">Endereço: </h4>
+      <div formGroupName="endereco">
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="inputAddress">Rua:</label>
+            <input formControlName="rua" type="text" class="form-control" id="inputAddress" placeholder="Rua">
+            <div class="alert alert-danger" *ngIf="!rua.valid && rua.touched">campo Endereço obrigatório</div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputAddress2">Bairro:</label>
+            <input formControlName="bairro" type="text" class="form-control" id="inputAddress2" placeholder="Bairro">
+            <div class="alert alert-danger" *ngIf="!bairro.valid && bairro.touched">campo Bairro obrigatório</div>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="inputAddress2">Número:</label>
+            <input formControlName="numero" type="text" class="form-control" id="inputAddress2" placeholder="N°">
+            <div class="alert alert-danger" *ngIf="!numero.valid && numero.touched">campo Número obrigatório</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Cidade</label>
+            <input formControlName="cidade" type="text" class="form-control" id="inputCity">
+            <div class="alert alert-danger" *ngIf="!cidade.valid && cidade.touched">campo Cidade obrigatório</div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Estado</label>
+            <select id="inputState" class="form-control" formControlName="estado">
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+
+            </select>
+            <div class="alert alert-danger" *ngIf="!estado.valid && estado.touched">campo Estado obrigatório</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col md-2">
+        <button type="submit" class="btn btn-success mb-5">Cadastrar</button>
+      </div>
+      <div class="col md-10">
+        <div *ngIf="sucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Veículo cadastradado com sucesso</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="fecharAlerta()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div *ngIf="erro" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Erro ao cadastrar Veículo por favor confira os campos e tente novamente</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="fecharAlerta()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+
+  </form>
+
+</div>
