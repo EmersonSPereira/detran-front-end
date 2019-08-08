@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, pipe, of, throwError } from 'rxjs';
-import { map, catchError ,} from 'rxjs/operators';
+import { map, catchError, } from 'rxjs/operators';
 
 
 @Injectable()
@@ -16,17 +16,25 @@ export class MultasServiceService {
   ) { }
 
   buscarMultas(placa: any): Observable<any[]> {
-    return this.httpService.get<any[]>(`http://localhost:8080/detran-backend/api/v1/multas/${placa}`)
+    return this.httpService.get<any[]>(`http://localhost:8080/detran-backend/api/v1/multas/${placa}`).pipe(
+      catchError(err => {
+        return throwError(err)
+      })
+    )
   }
   multarVeiculo(placa, tipo): Observable<any> {
     this.multasEnum.multasEnum = tipo;
     return this.httpService.post(`http://localhost:8080/detran-backend/api/v1/multas/${placa}`,
-    this.multasEnum).pipe(
+      this.multasEnum).pipe(
 
-      catchError(err => {
-        return throwError(err)
-      })
+        catchError(err => {
+          return throwError(err)
+        })
 
-    );
+      );
+  }
+
+  pagarMulta(id: number): Observable<any[]> {
+    return this.httpService.delete<any[]>(`http://localhost:8080/detran-backend/api/v1/multas/${id}`)
   }
 }
